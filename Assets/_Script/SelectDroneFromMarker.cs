@@ -22,14 +22,19 @@ public class SelectDroneFromMarker : MonoBehaviour
 
     public Text info;
 
+    public PlaceOnPlane placeOnPlane;
+
+
     void OnEnable()
     {
         m_TrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
+        PlaceOnPlane.onPlacedObject += OnPlaneObjectChanged;
     }
 
     void OnDisable()
     {
         m_TrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
+        PlaceOnPlane.onPlacedObject -= OnPlaneObjectChanged;
     }
 
     void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs)
@@ -43,7 +48,13 @@ public class SelectDroneFromMarker : MonoBehaviour
         foreach (var trackedImage in eventArgs.removed)
             droneBaseParent = null;
     }
-   
+
+    void OnPlaneObjectChanged()
+    {
+
+            droneBaseParent = placeOnPlane.spawnedObject.transform;
+    }
+
     private void Start()
     {
         droneController.SetActive(false);

@@ -20,27 +20,32 @@ namespace DigitalRubyShared
             joystickLeft.JoystickExecuted = JoystickLeftExecuted;
         }
 
-        private void JoystickRightExecuted(FingersJoystickScript script, Vector2 amount)
-        {
-            if(DroneControl != null)
-            {               
-                DroneControl.Upward = amount.y * SpeedRight;
-                DroneControl.Downward = -amount.y * SpeedRight / 2f;
-            } 
-        }
         private void JoystickLeftExecuted(FingersJoystickScript script, Vector2 amount)
         {
             if (DroneControl != null)
             {
-                DroneControl.Rightward = amount.x * SpeedLeft;
-                DroneControl.Leftward = -amount.x * SpeedLeft;
+                DroneControl.Rightward = -amount.x * SpeedLeft;
+                DroneControl.Leftward = amount.x * SpeedLeft;
 
-                DroneControl.Rotateright = amount.x * SpeedLeft;
-                DroneControl.Rotateleft = -amount.x * SpeedLeft;
+
 
                 DroneControl.Forward = -amount.y * SpeedLeft;
                 DroneControl.Backward = amount.y * SpeedLeft;
             }
         }
+
+
+        private void JoystickRightExecuted(FingersJoystickScript script, Vector2 amount)
+        {
+            if(DroneControl != null)
+            {               
+                DroneControl.Upward = amount.y * SpeedRight;
+                DroneControl.Downward = -amount.y * SpeedRight / 100f;
+
+                DroneControl.Rotateright = amount.x * SpeedLeft * 15;
+                DroneControl.Rotateleft = -amount.x * SpeedLeft * 15;
+            } 
+        }
+
     }
 }

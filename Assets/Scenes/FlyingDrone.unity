@@ -263,6 +263,7 @@ MonoBehaviour:
   droneController: {fileID: 252002313}
   selectionMenu: {fileID: 1488455588}
   info: {fileID: 290184391}
+  placeOnPlane: {fileID: 1197420422}
 --- !u!1001 &139023407
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -470,8 +471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   joystickRight: {fileID: 613160062}
   joystickLeft: {fileID: 139023409}
-  SpeedRight: 0.1
-  SpeedLeft: 0.1
+  SpeedRight: 0.03
+  SpeedLeft: 0.03
 --- !u!224 &252002315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1939,6 +1940,8 @@ GameObject:
   - component: {fileID: 1197420417}
   - component: {fileID: 1197420420}
   - component: {fileID: 1197420419}
+  - component: {fileID: 1197420423}
+  - component: {fileID: 1197420422}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -1983,7 +1986,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197420416}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
   m_Name: 
@@ -2019,6 +2022,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Camera: {fileID: 360157940}
+--- !u!114 &1197420422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197420416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d5359d5f13250e4485741ed685a32be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PlacedPrefab: {fileID: 582117526992089968, guid: 817573c342e5f4ec09714fde4d4e5607,
+    type: 3}
+--- !u!114 &1197420423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197420416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa17d122634046b4a8e23048891fafc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1202956945
 GameObject:
   m_ObjectHideFlags: 0

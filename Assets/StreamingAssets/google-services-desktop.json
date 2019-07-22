@@ -1,47 +1,37 @@
 {
-  "project_info": {
-    "project_number": "873618652795",
-    "firebase_url": "https://kc-vendingmachine.firebaseio.com",
-    "project_id": "kc-vendingmachine",
-    "storage_bucket": "kc-vendingmachine.appspot.com"
-  },
   "client": [
     {
+      "services": {
+        "appinvite_service": {
+          "status": 1
+        }, 
+        "analytics_service": {
+          "status": 0
+        }
+      }, 
+      "oauth_client": [
+        {
+          "client_id": "873618652795-m23cf6ksmlc9s76mgplgk1kujc5mv4du.apps.googleusercontent.com"
+        }
+      ], 
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxy-jEQHOXBUGVYEg3iOzM06lB7RiV1J4"
+        }
+      ], 
       "client_info": {
-        "mobilesdk_app_id": "1:873618652795:android:4039f77008b1b50a",
+        "mobilesdk_app_id": "1:873618652795:ios:4039f77008b1b50a", 
         "android_client_info": {
           "package_name": "com.mondodx.kcrogue"
         }
-      },
-      "oauth_client": [
-        {
-          "client_id": "873618652795-uvqr3lr0mun76pni3esgkh2h9dk4p48k.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyArYrq2br48EZQRyCJRCraENkUECX91UJQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "873618652795-uvqr3lr0mun76pni3esgkh2h9dk4p48k.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "873618652795-m23cf6ksmlc9s76mgplgk1kujc5mv4du.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.mondodx.kcrogue"
-              }
-            }
-          ]
-        }
       }
     }
-  ],
-  "configuration_version": "1"
+  ], 
+  "configuration_version": "1", 
+  "project_info": {
+    "storage_bucket": "kc-vendingmachine.appspot.com", 
+    "project_id": "kc-vendingmachine", 
+    "firebase_url": "https://kc-vendingmachine.firebaseio.com", 
+    "project_number": "873618652795"
+  }
 }
