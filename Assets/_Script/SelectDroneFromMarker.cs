@@ -1,4 +1,5 @@
 ﻿using System;
+using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using DigitalRubyShared;
@@ -6,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
-
+using System.IO;
 
 public class SelectDroneFromMarker : MonoBehaviour
 {
@@ -67,7 +68,33 @@ public class SelectDroneFromMarker : MonoBehaviour
         info.text = "";
     }
 
-    public void OnClickDroneSelected(int selection)
+    public void OnClickDroneSelected(int selection) //photon
+    {
+        if (droneBaseParent == null)
+        {
+            info.text = "Are you seeing the DRONE BASE?";
+            StopCoroutine("BaseNotFound");
+            StartCoroutine("BaseNotFound");
+            return;
+        }
+
+        if (SpawnedDrone != null)
+            return;//Destroy(SpawnedDrone);
+
+        
+
+
+        droneBaseParent.position = new Vector3(droneBaseParent.position.x, droneBaseParent.position.y + 0.095f, droneBaseParent.position.z);
+
+
+        SpawnedDrone = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", selection.ToString()), droneBaseParent.position, droneBaseParent.rotation);//Instantiate(droneModels[selection], droneBaseParent.position, droneBaseParent.rotation);
+
+        info.text = "Click to fly, dude!";
+        StopCoroutine("BaseNotFound");
+        StartCoroutine("BaseNotFound");
+    }
+
+    public void NotOnClickDroneSelected(int selection) //old
     {
         if (droneBaseParent == null)
         {
@@ -105,6 +132,7 @@ public class SelectDroneFromMarker : MonoBehaviour
         droneJoystick.DroneControl = SpawnedDrone.GetComponent<CustomControllerScript>();
     }
 
+    /*
     public void OnClickRestart()
     {
         if (SpawnedDrone != null)
@@ -112,6 +140,6 @@ public class SelectDroneFromMarker : MonoBehaviour
 
         droneController.SetActive(false);
         selectionMenu.SetActive(true);
-    }
+    }*/
    
 }

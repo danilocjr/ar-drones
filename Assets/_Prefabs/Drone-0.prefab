@@ -6435,6 +6435,8 @@ GameObject:
   - component: {fileID: 1861471002895132465}
   - component: {fileID: 1751136487342648137}
   - component: {fileID: 1861471002906459904}
+  - component: {fileID: 2808733381340258410}
+  - component: {fileID: 3380373345949059134}
   m_Layer: 0
   m_Name: Drone-0
   m_TagString: Player
@@ -6666,6 +6668,43 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   droneMovement: {fileID: 1861471002895136359}
+--- !u!114 &2808733381340258410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861471002906459907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  ObservedComponents:
+  - {fileID: 3380373345949059134}
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &3380373345949059134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861471002906459907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &1861471002906464473
 GameObject:
   m_ObjectHideFlags: 0
