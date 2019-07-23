@@ -6,9 +6,11 @@ using UnityEngine;
 using Unity.Collections;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.UI;
-#if UNITY_IOS
 using UnityEngine.XR.ARKit;
-#endif
+using Firebase.Storage;
+using System.Threading.Tasks;
+using System.Threading;
+using System;
 
 public class WorldViewer : MonoBehaviour
 {
@@ -24,6 +26,10 @@ public class WorldViewer : MonoBehaviour
         set { m_ARSession = value; }
     }
 
+    string worldmap = "dronewars_session.worldmap";
+    string local_url;
+    StorageReference reference;
+    bool isFirebaseReady;
 
     string path
     {
@@ -45,9 +51,43 @@ public class WorldViewer : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(Load());
+        isFirebaseReady = false;
+        reference = FirebaseStorage.DefaultInstance.GetReferenceFromUrl("gs://ardronewars.appspot.com/" + worldmap);
+        local_url = Path.Combine(Application.persistentDataPath, worldmap);
+        StartCoroutine("WaitForFirebase");
     }
 
+    IEnumerator WaitForFirebase()
+    {
+        Log("Connecting to the AR CLOUD...");
+        yield return new WaitForSeconds(4);
+        DownloadFile();
+    }
+
+    public void DownloadFile()
+    {
+        try
+        {
+            // Start downloading a file
+            Task task = reference.GetFileAsync("file://" + local_url, new StorageProgress<DownloadState>((DownloadState state) =>
+            {
+                Log(String.Format("Progress: {0} of {1} bytes transferred.", state.BytesTransferred, state.TotalByteCount));
+            }), CancellationToken.None);
+
+            task.ContinueWith(resultTask => {
+                if (!resultTask.IsFaulted && !resultTask.IsCanceled)
+                {
+                    Log("Download finished.");
+                    StartCoroutine("Load");
+                }
+            });
+        }
+        catch
+        {
+            Log("Fail to connect to AR Cloud.");
+        }
+
+    }
 
     IEnumerator Load()
     {

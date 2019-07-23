@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/_Scenes/MainMenu.unity
     guid: f3a9605b07ef5471f92e9c2e364b859e
   - enabled: 1
-    path: Assets/Scenes/FlyingDrone Multiplayer.unity
+    path: Assets/_Scenes/FlyingDrone Multiplayer.unity
     guid: 0e15c88c20eb744889a77e61b59bbe5e
-  - enabled: 1
-    path: Assets/Scenes/FlyingDrone.unity
+  - enabled: 0
+    path: Assets/_Scenes/FlyingDrone.unity
     guid: a3f0cf3407560480095cd68b29b4422f
+  - enabled: 0
+    path: Assets/_Scenes/WorldMapper.unity
+    guid: d695f4952be86429a89f85236e1a4216
   m_configObjects: {}
