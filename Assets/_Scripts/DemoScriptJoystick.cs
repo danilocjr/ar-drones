@@ -27,7 +27,8 @@ namespace DigitalRubyShared
                 DroneControl.Rightward = -amount.x * SpeedLeft;
                 DroneControl.Leftward = amount.x * SpeedLeft;
 
-
+                DroneControl.Rotateright = amount.x * SpeedLeft * 15;
+                DroneControl.Rotateleft = -amount.x * SpeedLeft * 15;
 
                 DroneControl.Forward = -amount.y * SpeedLeft;
                 DroneControl.Backward = amount.y * SpeedLeft;
@@ -42,8 +43,7 @@ namespace DigitalRubyShared
                 DroneControl.Upward = amount.y * SpeedRight;
                 DroneControl.Downward = -amount.y * SpeedRight / 100f;
 
-                DroneControl.Rotateright = amount.x * SpeedLeft * 15;
-                DroneControl.Rotateleft = -amount.x * SpeedLeft * 15;
+                
             } 
         }
 

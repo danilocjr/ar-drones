@@ -68,6 +68,10 @@ public class WorldViewer : MonoBehaviour
     {
         try
         {
+            //if (File.Exists("file://" + local_url))
+            //    return;
+
+
             // Start downloading a file
             Task task = reference.GetFileAsync("file://" + local_url, new StorageProgress<DownloadState>((DownloadState state) =>
             {
